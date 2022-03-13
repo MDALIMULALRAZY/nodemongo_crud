@@ -3,7 +3,7 @@ const Post = require("../models/Post");
 const bcrypt = require("bcrypt");
 
 //updatepost
-const updatepost = async (req, res) => {
+const updateuser = async (req, res) => {
   if (req.body.userId === req.params.id) {
     if (req.body.password) {
       const salt = await bcrypt.genSalt(10);
@@ -27,7 +27,7 @@ const updatepost = async (req, res) => {
 };
 
 //deletepost
-const deletepost = async (req, res) => {
+const deleteuser = async (req, res) => {
   if (req.body.userId === req.params.id) {
     try {
       const user = await User.findById(req.params.id);
@@ -57,7 +57,7 @@ const getuser = async (req, res) => {
 };
 
 module.exports = {
-  updatepost,
-  deletepost,
+  updateuser,
+  deleteuser,
   getuser
   }
